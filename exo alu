@@ -1,0 +1,26 @@
+#include
+#define ORDI 0
+#define HUMAIN 1
+main(){
+int coup, pos, joueur;
+printf("Combien d’allumettes : ");
+scanf("%i", &pos);
+printf("Qui commence (%i pour l’ordi, %i pour vous) : ", ORDI, HUMAIN);
+scanf("%i", &joueur);
+while(pos!=0){
+if (joueur == ORDI){
+coup = pos%7;
+if (coup == 0) coup = 1;
+printf("Il y a %i allumettes, j’en enleve %i.\n", pos, coup);
+}
+else{
+printf("Il y a %i allumettes. Votre coup svp : ", pos);
+scanf("%i", &coup);
+}
+pos = pos - coup;
+joueur = !joueur;
+}
+if (joueur == ORDI) printf("Vous avez gagne !\n");
+else printf("Vous avez perdu...\n");
+return 0;
+}
